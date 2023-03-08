@@ -32,15 +32,22 @@ public class Student {
         MALE, FEMALE, OTHER;
     }
 
+    public enum Subjects{
+        PHYSICS, CHEMISTRY, BIOLOGY, MATH;
+    }
+
     private GenderOptions studentGender;
     private StudyYearOptions studyYear;
 
-    public Student(String studentID, String firstName, String lastName, String address, int totalCourses) {
+    public Student(String studentID, String firstName, String lastName, String address) {
         this.studentID = studentID;
         studentFirstName = firstName;
         studentLastName = lastName;
         studentAddress = address;
-        totalCoursesTaken = totalCourses;
+    }
+
+    public String getStudentID(){
+        return this.studentID;
     }
 
     public void setStudentGender(String gender){
@@ -167,6 +174,17 @@ public class Student {
         else {
             totalGrades = grades;
         }
+    }
+
+    public void setTotalCoursesTaken(){
+        int i=0;
+        for(i= 1; i<= Subjects.values().length; i++){
+            totalCoursesTaken += 1;  // totalCoursesTaken++
+        }
+    }
+
+    public int getTotalCoursesTaken(){
+        return totalCoursesTaken;
     }
 
     public void setStudentDistinction(){
